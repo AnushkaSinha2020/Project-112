@@ -1,0 +1,152 @@
+<html>
+  <head>
+    <title>Case Study(Project 112)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+    <script src="https://unpkg.com/ml5@0.4.3/dist/ml5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.26/webcam.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Special+Elite&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="main.js"></script>
+  </head>
+  <body>
+      <center>
+        <div class="col-xs-12 header_div">
+            <h2>Case Study
+            <img src="Screenshot (398).png" height="100px" width="110px"></h2>
+        </div>
+      </center>
+        <br><br>
+          <br>
+        <div class="col-sm-6 col-xs-12 main_div" style="float: right; background-color: rgb(109, 211, 252);">
+          <label style="text-decoration: underline; font-size: 20px;">Accuracy of Microsoft Azure - </label>
+          <h5 style="font-size: 20px; font-weight: bold; color: red;" id="a_ma"></h5>
+          <hr>
+          <span>
+            <label style="text-decoration: underline; font-size: 20px;">Accuracy of Mobilenet Model - </label>
+          <h5 style="font-size: 20px; font-weight: bold; color: red;" id="a_mm"></h5>
+          </span>
+          <hr>
+          <button onclick="view_accuracy();" class="btn btn-warning">View Accuracy and Result</button>
+        </div>
+        <div class="bob3" style="float: right;">
+          <h4 style="font-size: 20px; font-weight: bold;" id="h4"> Result - </h4>
+          <hr>
+          <h4 id="h4_result" style="font-size: 20px; font-weight: bold; color: white"> </h4>
+      </div>
+
+      <div class="col-sm-6 col-xs-12 main_div" style="float: right; background-color: rgb(109, 211, 252);">
+        <label style="text-decoration: underline; font-size: 20px;">Link for Microsoft Azure - </label><br>
+        <a class="artical" href="https://azure.microsoft.com/en-in/services/cognitive-services/computer-vision/#features" target="_blank">
+          <img id="microsoft" style="background-color: white; transition: transform .2s;" src="microsoft-azure-500x500.png" height="200px" width="250px">
+      </a>
+      <hr>
+      <label style="text-decoration: underline; font-size: 20px;">Link for MobileNet Model - </label><br>
+      <a class="artical" href="https://anushkasinha2020.github.io/Mobilenet-Model/" target="_blank">
+        <img id="mobilenet" style="background-color: white; transition: transform .2s;" src="blub.gif" height="200px" width="250px">
+    </a>
+      </div>
+      <ol>
+          <div class="text_images_and_result" style="width: 40%;">
+            <li>
+              <b>Test Image - </b><center><img src="pair-pink-sport-shoes-on-260nw-228691018.jpg" class="img-responsive"></center>
+            </li>
+            <h5>Output on <b style="color: purple; font-size: 18px;">Microsoft Azure - </b>
+            <span id="d1s1"style="color: red; font-size: 18px;"> </span>
+            </h5>
+            <h5>Output on <b style="color: purple; font-size: 18px;">Mobilenet Model - </b>
+                <span id="d1s2" style="color: red; font-size: 18px;"> </span>
+                <br>
+                <center><button onclick="visible1();" class="btn btn-success">View Results</button></center>
+                </h5>
+            </div>
+            <div class="text_images_and_result" style="width: 40%;">
+              <li>
+                <b>Test Image - </b><center><img src="960x0.jpg" class="img-responsive"></center>
+              </li>
+              <h5>Output on <b style="color: purple; font-size: 18px;">Microsoft Azure - </b>
+              <span id="d2s1" style="color: red; font-size: 18px;"> </span>
+              </h5>
+              <h5>Output on <b style="color: purple; font-size: 18px;">Mobilenet Model - </b>
+                  <span id="d2s2" style="color: red; font-size: 18px;"> </span>
+                  <br>
+                  <center><button onclick="visible2();" class="btn btn-success">View Results</button></center>
+                  </h5>
+              </div>
+              <div class="text_images_and_result" style="width: 40%;">
+                <li>
+                  <b>Test Image - </b><center><img src="rockerz-450-blue.png" class="img-responsive"></center>
+                </li>
+                <h5>Output on <b style="color: purple; font-size: 18px;">Microsoft Azure - </b>
+                <span id="d3s1" style="color: red; font-size: 18px;"> </span>
+                </h5>
+                <h5>Output on <b style="color: purple; font-size: 18px;">Mobilenet Model - </b>
+                    <span id="d3s2" style="color: red; font-size: 18px;"> </span>
+                    <br>
+                    <center><button onclick="visible3();" class="btn btn-success">View Results</button></center>
+                    </h5>
+                </div>
+                <div class="text_images_and_result" style="width: 40%;">
+                  <li>
+                    <b>Test Image - </b><center><img src="silk-bubblyx2.jpg" class="img-responsive"></center>
+                  </li>
+                  <h5>Output on <b style="color: purple; font-size: 18px;">Microsoft Azure - </b>
+                  <span id="d4s1" style="color: red; font-size: 18px;"> </span>
+                  </h5>
+                  <h5>Output on <b style="color: purple; font-size: 18px;">Mobilenet Model - </b>
+                      <span id="d4s2" style="color: red; font-size: 18px;"> </span>
+                      <br>
+                      <center><button onclick="visible4();" class="btn btn-success">View Results</button></center>
+                      </h5>
+                  </div>
+                  <div class="text_images_and_result" style="width: 40%;">
+                    <li>
+                      <b>Test Image - </b><center><img src="spoon.jpg" class="img-responsive"></center>
+                    </li>
+                    <h5>Output on <b style="color: purple; font-size: 18px;">Microsoft Azure - </b>
+                    <span id="d5s1" style="color: red; font-size: 18px;"> </span>
+                    </h5>
+                    <h5>Output on <b style="color: purple; font-size: 18px;">Mobilenet Model - </b>
+                        <span id="d5s2" style="color: red; font-size: 18px;"> </span>
+                        <br>
+                        <center><button onclick="visible5();" class="btn btn-success">View Results</button></center>
+                        </h5>
+                    </div>
+                    <div class="text_images_and_result" style="width: 40%;">
+                      <li>
+                        <b>Test Image - </b><center><img src="packaged-water-bottle-500x500.jpg" class="img-responsive"></center>
+                      </li>
+                      <h5>Output on <b style="color: purple; font-size: 18px;">Microsoft Azure - </b>
+                      <span id="d6s1" style="color: red; font-size: 18px;"> </span>
+                      </h5>
+                      <h5>Output on <b style="color: purple; font-size: 18px;">Mobilenet Model - </b>
+                          <span id="d6s2" style="color: red; font-size: 18px;"> </span>
+                          <br>
+                          <center><button onclick="visible6();" class="btn btn-success">View Results</button></center>
+                          </h5>
+                      </div>
+                      <div class="text_images_and_result" style="width: 40%;">
+                        <li>
+                          <b>Test Image - </b><center><img src="ImgW.jpg" class="img-responsive"></center>
+                        </li>
+                        <h5>Output on <b style="color: purple; font-size: 18px;">Microsoft Azure - </b>
+                        <span id="d7s1" style="color: red; font-size: 18px;"> </span>
+                        </h5>
+                        <h5>Output on <b style="color: purple; font-size: 18px;">Mobilenet Model - </b>
+                            <span id="d7s2" style="color: red; font-size: 18px;"> </span>
+                            <br>
+                            <center><button onclick="visible7();" class="btn btn-success">View Results</button></center>
+                            </h5>
+                          </div>
+            <br><br>
+            <div class="copy_right_footer" style="width:100%; float: left;">
+                Developed by - Anushka Sinha
+              </div>
+  </body>
+</html>
